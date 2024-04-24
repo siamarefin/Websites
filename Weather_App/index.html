@@ -14,12 +14,47 @@
             <button class = "search_button"><img src="images\search.png"></button>
 
         </div>
-        <div class="weather">
+        <div class="weather" >
             <img src="images/rain.png" class = "weather-icon" alt="">
             <h1 class="temp" >29°C</h1>
             <h2 class="city">Bangladesh</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col" >
+                    <img src="images/wind.png">
+                    <div>
+                        <p class="wind">15 kmph</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
+
+
+    <script>
+        const apiKey = "858b55bece922193ee3ce508c6d36904" ;
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangladesh" ;
+
+        async function chechWeather(){
+            const response = await fetch(apiUrl + `&appid=${apiKey}`) ;
+            var data = await response.json() ; 
+            console.log(data)
+
+        }
+        
+        
+        chechWeather();
+    </script>
+
 
 </body>
 </html>
